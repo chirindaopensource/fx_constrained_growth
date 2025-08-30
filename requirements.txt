@@ -1,0 +1,144 @@
+﻿# =============================================================================
+# Requirements.txt for Macro-Financial Digital Twin Implementation
+# 
+# Paper: "FX-constrained growth: Fundamentalists, chartists and the 
+#         dynamic trade-multiplier" by Dávila-Fernández & Sordi (2025)
+#
+# This file specifies exact package versions for reproducible research
+# environments supporting Bayesian state-space modeling, heterogeneous agent
+# simulation, and nonlinear dynamics analysis for FX-constrained economies.
+#
+# Version Pinning Strategy:
+# - Exact versions (==) for core numerical libraries ensuring stability
+# - Compatible release (~=) for specialized packages with stable APIs  
+# - Minimum constraints (>=) only where backward compatibility guaranteed
+#
+# Target Python Version: >=3.9,<3.13
+# =============================================================================
+
+# --- Core Numerical Computing Stack ---
+# Foundational array operations and linear algebra
+numpy==1.26.4
+
+# High-performance data structures for time series analysis
+pandas==2.2.2
+
+# Scientific computing library with statistical distributions
+scipy==1.13.1
+
+# --- Econometric and Time Series Analysis ---
+# Comprehensive statistical modeling for econometric analysis
+# Provides HP filter, autocorrelation functions, and diagnostic tests
+statsmodels==0.14.2
+
+# ARCH/GARCH modeling for financial volatility analysis
+# Required for heteroskedasticity testing and volatility modeling
+arch==7.0.0
+
+# --- Advanced Time Series Analysis ---
+# Nonlinear dynamics and complexity measures (Lyapunov, entropy)
+# Essential for chaos quantification in heterogeneous agent models
+nolds==0.6.1
+
+# Change point detection and structural break analysis
+# Critical for identifying regime shifts in economic time series
+ruptures==1.1.9
+
+# --- Global Sensitivity Analysis ---
+# Sobol indices and Morris screening for parameter sensitivity
+# Version 1.5+ required for stable Saltelli sampling implementation
+SALib==1.5.1
+
+# --- Machine Learning and Data Preprocessing ---
+# Iterative imputation for missing data handling
+# Version 1.4+ required for experimental iterative imputer stability
+scikit-learn==1.4.2
+
+# --- Bayesian Inference and MCMC ---
+# High-performance parallel computing for Gibbs sampling
+# Essential for parallelized MCMC chains and bootstrap procedures
+joblib==1.4.2
+
+# --- System Monitoring and Performance ---
+# Memory profiling for MCMC convergence monitoring
+memory-profiler==0.61.0
+
+# System resource monitoring during intensive computations
+psutil==5.9.8
+
+# Progress tracking for long-running simulations
+# Required for user feedback during bifurcation analysis
+tqdm==4.66.4
+
+# --- Development and Quality Assurance ---
+# Type checking for production-grade financial modeling code
+mypy==1.10.1
+
+# Code formatting for PEP-8 compliance
+black==24.4.2
+
+# Advanced linting for financial modeling best practices
+flake8==7.1.0
+
+# Import sorting for clean module organization
+isort==5.13.2
+
+# --- Testing Framework ---
+# Comprehensive testing for numerical accuracy validation
+pytest==8.2.2
+
+# Parametric testing for robustness analysis
+pytest-parametrize-plus==1.3.0
+
+# Coverage analysis for ensuring complete test coverage
+pytest-cov==5.0.0
+
+# --- Documentation Generation ---
+# API documentation generation for research reproducibility
+sphinx==7.3.7
+
+# Mathematical notation support in documentation
+sphinx-math-dollar==1.2.1
+
+# --- Additional Dependencies for Specialized Analysis ---
+# Linear programming solver for constrained optimization
+cvxpy==1.5.2
+
+# Financial data fetching (if required for real-time validation)
+yfinance==0.2.28
+
+# World Bank data access for macroeconomic indicators
+wbgapi==1.0.12
+
+# Excel file handling for institutional data sources
+openpyxl==3.1.2
+
+# JSON configuration file handling
+jsonschema==4.22.0
+
+# Parallel HDF5 data storage for large simulation outputs
+tables==3.9.2
+
+# =============================================================================
+# Installation Notes:
+# 
+# 1. Install in virtual environment:
+#    python -m venv venv
+#    source venv/bin/activate  # On Windows: venv\Scripts\activate
+#    pip install -r requirements.txt
+#
+# 2. For development with additional tools:
+#    pip install -r requirements.txt
+#    pip install jupyter ipykernel  # For interactive analysis
+#
+# 3. Verify installation:
+#    python -c "import numpy, pandas, statsmodels, arch, SALib; print('Success')"
+#
+# 4. Memory Requirements:
+#    Minimum 16GB RAM recommended for full MCMC estimation
+#    32GB+ recommended for large-scale bifurcation analysis
+#
+# 5. Parallel Processing:
+#    joblib will utilize all available CPU cores by default
+#    Set LOKY_MAX_CPU_COUNT environment variable to limit usage
+# =============================================================================
